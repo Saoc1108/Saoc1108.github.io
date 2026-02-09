@@ -1,17 +1,271 @@
 ---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
 
+const allProjects = await getCollection('projects');
+const sortedProjects = allProjects.sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout title="Sebastian Olmos | Portafolio">
+  
+  {/* --- HERO SECTION: IDENTIDAD PERSONAL --- */}
+  <section class="flex flex-col justify-center min-h-[85vh] py-10 relative">
+    
+    {/* Decoración de fondo (opcional) */}
+    <div class="absolute right-0 top-1/4 -z-10 opacity-20 hidden md:block">
+       <svg width="400" height="400" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <path fill="#DC2626" d="M44.7,-76.4C58.9,-69.2,71.8,-59.1,81.6,-46.6C91.4,-34.1,98.1,-19.2,95.8,-4.1C93.5,11.1,82.2,26.4,71.5,40.1C60.8,53.8,50.8,65.9,38.6,73.6C26.4,81.3,12.1,84.6,-1.6,87.4C-15.3,90.2,-29.9,92.5,-42.9,86.6C-55.9,80.7,-67.3,66.6,-75.6,51.6C-83.9,36.6,-89.1,20.7,-88.1,5.3C-87.1,-10.1,-79.9,-25,-70.2,-38.4C-60.5,-51.8,-48.3,-63.7,-35.1,-71.4C-21.9,-79.1,-7.7,-82.6,4.8,-90.9L17.3,-99.2Z" transform="translate(100 100)" />
+       </svg>
+    </div>
+
+    <div class="space-y-8">
+      
+      {/* 1. Saludo Intro */}
+      <div class="flex items-center gap-3">
+        <span class="h-[1px] w-12 bg-red-600"></span>
+        <span class="text-red-500 font-mono text-sm tracking-widest uppercase">Hola, mi nombre es</span>
+      </div>
+
+      {/* 2. TU NOMBRE (¡EDÍTALO AQUÍ!) */}
+      <h1 class="text-6xl md:text-8xl font-bold tracking-tighter text-white leading-[0.9]">
+        Sebastián Alejandro <br />
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-red-600 to-red-900">
+          Olmos Cordero
+        </span>
+      </h1>
+      
+      {/* 3. Tu Título y Datos */}
+      <div class="max-w-2xl border-l-4 border-neutral-800 pl-6 py-2">
+        <h2 class="text-2xl md:text-3xl text-neutral-200 font-medium mb-2">
+          Ingeniero de Ejecución en Informática
+        </h2>
+        <p class="text-neutral-500 text-lg">
+          Mención en Desarrollo de Sistemas
+        </p>
+      </div>
+
+      {/* 4. Datos de Contacto Directo */}
+      <div class="flex flex-col md:flex-row gap-6 text-neutral-400 font-mono text-sm pt-4">
+        <div class="flex items-center gap-3 hover:text-white transition-colors cursor-default">
+          <div class="p-2 bg-neutral-900 rounded border border-neutral-800 text-red-500">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+          </div>
+          <span>s.olmos1108@gmail.com</span> {/* <--- Pon tu email real aquí */}
+        </div>
+
+        <div class="flex items-center gap-3 hover:text-white transition-colors cursor-default">
+           <div class="p-2 bg-neutral-900 rounded border border-neutral-800 text-red-500">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          </div>
+          <span>Chile</span>
+        </div>
+      </div>
+
+      {/* 5. Call to Action (Actualizado con 3 botones) */}
+      <div class="flex flex-wrap gap-4 pt-8">
+        
+        {/* Botón Principal: Proyectos */}
+        <a href="#projects" class="px-6 py-3 bg-red-700 hover:bg-red-600 text-white rounded font-bold transition-all shadow-[0_0_20px_-5px_rgba(220,38,38,0.5)] hover:shadow-[0_0_25px_-5px_rgba(220,38,38,0.7)]">
+          Ver Proyectos
+        </a>
+
+        {/* Botón Nuevo: Sobre Mí */}
+        <a href="#about" class="px-6 py-3 bg-neutral-900 border border-neutral-700 hover:border-red-500/50 text-neutral-300 hover:text-white rounded font-medium transition-colors">
+          Sobre Mí
+        </a>
+
+        {/* Botón Externo: LinkedIn */}
+        <a href="https://linkedin.com/in/saoc" target="_blank" class="px-6 py-3 border border-neutral-700 hover:border-white text-neutral-300 hover:text-white rounded font-medium transition-colors flex items-center gap-2">
+          LinkedIn <span class="text-xs">↗</span>
+        </a>
+        
+      </div>
+
+    </div>
+  </section>
+
+  {/* --- SECCIÓN: SOBRE MÍ (Actualizada) --- */}
+  <section id="about" class="py-20 border-t border-neutral-900">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      
+      {/* Columna Imagen */}
+      <div class="relative group order-2 md:order-1">
+        <div class="absolute -inset-1 bg-gradient-to-r from-red-600 to-red-900 rounded-lg blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+        <div class="relative aspect-square overflow-hidden rounded-lg border border-neutral-800 bg-neutral-900">
+          <img 
+            src="/perfil.jpg" 
+            alt="Foto de perfil" 
+            class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+          />
+        </div>
+      </div>
+
+      {/* Columna Texto */}
+      <div class="space-y-6 order-1 md:order-2">
+        <h2 class="text-3xl font-bold text-white flex items-center gap-3">
+          <span class="text-red-600">/</span> Sobre Mí
+        </h2>
+        
+        <div class="space-y-4 text-neutral-400 text-lg leading-relaxed">
+          <p>
+            Soy <strong class="text-white">Ingeniero de Ejecución en Informática</strong> con mención en desarrollo de sistemas, titulado con distinción. Mi enfoque combina la rigurosidad técnica de la ingeniería con una capacidad creativa orientada a resolver problemas complejos.
+          </p>
+          <p>
+            Cuento con <strong class="text-red-400">más de 5 años de experiencia</strong> desarrollando videojuegos independientes en Unity (C#) para Android, gestionando desde la programación de IAs hasta la publicación. En el ámbito web, tengo una base sólida en soluciones backend robustas con <strong class="text-white">Python (Django) y .NET</strong>, priorizando siempre la seguridad informática y la optimización.
+          </p>
+          <p>
+            Fuera de las líneas de código, me apasiona la restauración automotriz (actualmente trabajando en mi proyecto <em class="text-white">"La Mosca"</em>) y el aprendizaje constante de nuevas arquitecturas de software.
+          </p>
+        </div>
+
+        {/* BOTÓN DESCARGAR CV */}
+        <div class="pt-4">
+          <a 
+            href="/cv.pdf" 
+            download="CV_Ingeniero_Informatica.pdf"
+            class="inline-flex items-center gap-2 px-6 py-3 bg-neutral-100 hover:bg-white text-neutral-950 rounded font-bold transition-colors shadow-[0_0_15px_rgba(255,255,255,0.1)]"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            Descargar CV
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  {/* --- FORMACIÓN ACADÉMICA --- */}
+  <section class="py-16 border-t border-neutral-900">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      
+      {/* Título de la sección */}
+      <div class="md:col-span-1">
+        <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-2">
+          <span class="text-red-600">🎓</span> Formación
+        </h2>
+        <p class="text-neutral-400 text-sm leading-relaxed">
+          Trayectoria académica marcada por la excelencia en cátedras de especialidad y gestión.
+        </p>
+      </div>
+
+      {/* Lista de Estudios */}
+      <div class="md:col-span-2 space-y-8">
+        
+        {/* TITULACIÓN PRINCIPAL */}
+        <div class="relative pl-8 border-l border-neutral-800">
+          {/* Bolita roja brillante */}
+          <div class="absolute -left-[5px] top-2 h-2.5 w-2.5 rounded-full bg-red-600 shadow-[0_0_15px_rgba(220,38,38,0.6)]"></div>
+          
+          <h3 class="text-xl font-bold text-white">Ingeniería de Ejecución en Informática</h3>
+          <div class="text-neutral-400 text-sm mb-3 font-medium">Instituto Profesional AIEP</div>
+
+          {/* Badges de Distinción */}
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="px-2 py-1 bg-neutral-800 text-neutral-300 text-xs rounded border border-neutral-700">
+              Mención Desarrollo de Sistemas
+            </span>
+            <span class="px-2 py-1 bg-red-900/20 text-red-400 text-xs rounded border border-red-900/30 font-bold tracking-wide">
+              TITULADO CON DISTINCIÓN
+            </span>
+             <span class="px-2 py-1 bg-neutral-800 text-neutral-300 text-xs rounded border border-neutral-700">
+              Promedio Formativo: 6.1
+            </span>
+          </div>
+
+          {/* Cátedras Destacadas (Nota 7.0) */}
+          <div class="bg-neutral-900/50 rounded-lg p-4 border border-neutral-800/50">
+            <h4 class="text-xs font-mono text-neutral-500 uppercase tracking-widest mb-3 flex items-center gap-2">
+              <span class="text-red-500">★</span> Excelencia Académica (Nota 7.0)
+            </h4>
+            <div class="flex flex-wrap gap-2">
+              {['Seguridad Informática', 'Gestión de Proyectos TI', 'Minería de Datos'].map((item) => (
+                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-neutral-950 border border-neutral-800 text-xs font-medium text-neutral-300 hover:border-red-500/30 hover:text-white transition-colors cursor-default">
+                  {item}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  {/* --- STACK TECNOLÓGICO --- */}
+  <section class="py-20 border-t border-neutral-900">
+    <h3 class="text-sm font-mono text-neutral-500 mb-8 uppercase tracking-widest">Stack Tecnológico</h3>
+    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+      {['C# .NET', 'React', 'TypeScript', 'Unity', 'SQL Server', 'Python / Django'].map((tech) => (
+        <div class="p-4 bg-neutral-900/50 border border-neutral-800 rounded hover:border-red-900/50 hover:text-red-400 transition-all cursor-default flex items-center justify-center font-semibold text-neutral-400">
+          {tech}
+        </div>
+      ))}
+    </div>
+  </section>
+
+  {/* --- PROYECTOS --- */}
+  <section id="projects" class="py-20 border-t border-neutral-900">
+    <div class="flex items-baseline justify-between mb-12">
+      <h2 class="text-3xl font-bold text-white">Proyectos Seleccionados</h2>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {sortedProjects.map((project) => (
+        <article class="group relative bg-neutral-900 border border-neutral-800 rounded-lg overflow-hidden hover:border-red-900/50 transition-all duration-300 hover:-translate-y-1 flex flex-col">
+          
+          {/* 1. ZONA DE IMAGEN (Nueva) */}
+          {/* Solo se renderiza si el proyecto tiene imagen definida en el .md */}
+          {project.data.image && (
+            <div class="relative h-48 w-full overflow-hidden border-b border-neutral-800">
+              <Image 
+                src={project.data.image} 
+                alt={`Captura de pantalla de ${project.data.title}`}
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                width={600} 
+                height={300}
+              />
+              {/* Overlay sutil para unificar el tono */}
+              <div class="absolute inset-0 bg-neutral-900/20 group-hover:bg-transparent transition-colors"></div>
+            </div>
+          )}
+
+          {/* 2. CONTENIDO (Lo que ya tenías) */}
+          <div class="p-8 flex-1 flex flex-col">
+            <div class="flex gap-2 mb-4 flex-wrap">
+              {project.data.tags.map((tag) => (
+                <span class="text-xs font-bold px-2 py-1 rounded bg-neutral-950 text-neutral-400 border border-neutral-800 group-hover:border-red-900/30 group-hover:text-red-400 transition-colors">
+                  {tag}
+                </span>
+              ))}
+            </div>
+
+            <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-red-500 transition-colors">
+              {project.data.title}
+            </h3>
+            
+            <p class="text-neutral-400 text-sm leading-relaxed mb-6 flex-1">
+              {project.data.description}
+            </p>
+
+            <div class="pt-6 border-t border-neutral-800 flex gap-4 mt-auto">
+              {project.data.repo && (
+                <a href={project.data.repo} target="_blank" class="text-sm font-bold text-neutral-500 hover:text-white flex items-center gap-2 uppercase tracking-wide">
+                  GitHub ↗
+                </a>
+              )}
+              {project.data.link && (
+                <a href={project.data.link} target="_blank" class="text-sm font-bold text-red-600 hover:text-red-400 flex items-center gap-2 uppercase tracking-wide">
+                  Live Demo ↗
+                </a>
+              )}
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+</BaseLayout>

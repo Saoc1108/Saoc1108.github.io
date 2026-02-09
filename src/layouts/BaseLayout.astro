@@ -1,0 +1,47 @@
+---
+// Importamos los estilos globales aquí para asegurar que carguen
+import '@/styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Portafolio Profesional" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es" class="scroll-smooth dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body class="bg-neutral-950 text-neutral-300 antialiased selection:bg-red-900 selection:text-white">
+    
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      
+      {/* Navbar Minimalista */}
+      <nav class="py-8 flex justify-between items-center border-b border-neutral-800/50">
+         <span class="font-bold text-xl tracking-tighter text-white">
+           DEV<span class="text-red-600">.</span>PORTFOLIO
+         </span>
+         <a href="https://github.com/Saoc1108/" target="_blank" class="text-sm font-medium hover:text-red-500 transition-colors">
+           GitHub
+         </a>
+      </nav>
+
+      <main class="py-12">
+        <slot />
+      </main>
+
+      <footer class="text-center text-sm text-neutral-600 py-8 border-t border-neutral-800/50 mt-12">
+        &copy; {new Date().getFullYear()} - Ingeniería & Código
+      </footer>
+    </div>
+    
+  </body>
+</html>
