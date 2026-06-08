@@ -183,11 +183,10 @@ const sortedProjects = allProjects.sort(
         </div>
 
 
-        <div class="pt-4">
-          <a
-            href="/cv.pdf"
-            download="CV_Ingeniero_Informatica.pdf"
-            class="inline-flex items-center gap-2 px-6 py-3 bg-neutral-100 hover:bg-white text-neutral-950 rounded font-bold transition-colors shadow-[0_0_15px_rgba(255,255,255,0.1)]"
+        <div class="pt-4 flex flex-col gap-2.5 items-start">
+          <button
+            id="open-cv-modal"
+            class="inline-flex items-center gap-2 px-6 py-3 bg-red-700 hover:bg-red-600 text-white rounded font-bold transition-all shadow-[0_0_20px_-5px_rgba(220,38,38,0.5)] hover:shadow-[0_0_25px_-5px_rgba(220,38,38,0.7)] cursor-pointer"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -199,15 +198,13 @@ const sortedProjects = allProjects.sort(
               stroke-width="2"
               stroke-linecap="round"
               stroke-linejoin="round"
-              ><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"
-              ></path><polyline points="7 10 12 15 17 10"></polyline><line
-                x1="12"
-                y1="15"
-                x2="12"
-                y2="3"></line></svg
+              ><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg
             >
-            Descargar CV
-          </a>
+            Solicitar CV
+          </button>
+          <span class="text-xs text-neutral-500 font-mono">
+            * Se requiere solicitud para proteger la privacidad de mis datos personales.
+          </span>
         </div>
       </div>
     </div>
@@ -419,4 +416,171 @@ const sortedProjects = allProjects.sort(
       }
     </div>
   </section>
+
+  <!-- Modal de Solicitud de CV -->
+  <div
+    id="cv-modal"
+    class="fixed inset-0 z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300 bg-neutral-950/80 backdrop-blur-sm"
+  >
+    <div
+      id="cv-modal-content"
+      class="relative w-full max-w-lg scale-95 opacity-0 transition-all duration-300 bg-neutral-900 border border-neutral-800 rounded-lg p-6 md:p-8 shadow-2xl flex flex-col gap-6"
+    >
+      <!-- Botón de Cerrar (X) -->
+      <button
+        id="close-cv-modal-x"
+        class="absolute top-4 right-4 text-neutral-400 hover:text-white transition-colors cursor-pointer"
+        aria-label="Cerrar modal"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          ><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg
+        >
+      </button>
+
+      <div>
+        <h3 class="text-2xl font-bold text-white flex items-center gap-2">
+          <span class="text-red-600">✉</span> Solicitar CV
+        </h3>
+        <p class="text-neutral-400 text-sm mt-2 leading-relaxed">
+          Para proteger la privacidad de mis datos personales (teléfono, dirección, etc.), mi currículum se envía de forma directa y personalizada. Por favor, ingresa tus datos a continuación.
+        </p>
+      </div>
+
+      <form id="cv-request-form" class="space-y-4">
+        <div>
+          <label for="request-name" class="block text-xs font-mono text-neutral-400 uppercase tracking-wider mb-2">
+            Nombre / Empresa <span class="text-red-500">*</span>
+          </label>
+          <input
+            type="text"
+            id="request-name"
+            required
+            placeholder="Ej. Jane Doe / TechCorp"
+            class="w-full px-4 py-3 bg-neutral-950 border border-neutral-800 rounded text-white placeholder-neutral-600 focus:outline-none focus:border-red-600 transition-colors"
+          />
+        </div>
+
+        <div>
+          <label for="request-email" class="block text-xs font-mono text-neutral-400 uppercase tracking-wider mb-2">
+            Tu Correo Electrónico <span class="text-red-500">*</span>
+          </label>
+          <input
+            type="email"
+            id="request-email"
+            required
+            placeholder="Ej. jane.doe@example.com"
+            class="w-full px-4 py-3 bg-neutral-950 border border-neutral-800 rounded text-white placeholder-neutral-600 focus:outline-none focus:border-red-600 transition-colors"
+          />
+        </div>
+
+        <div>
+          <label for="request-message" class="block text-xs font-mono text-neutral-400 uppercase tracking-wider mb-2">
+            Mensaje <span class="text-red-500">*</span>
+          </label>
+          <textarea
+            id="request-message"
+            rows="4"
+            required
+            class="w-full px-4 py-3 bg-neutral-950 border border-neutral-800 rounded text-white placeholder-neutral-600 focus:outline-none focus:border-red-600 transition-colors resize-none"
+          >Hola Sebastián, he visto tu portafolio y me gustaría solicitar tu CV para revisar tu perfil profesional para una posible vacante.</textarea>
+        </div>
+
+        <div class="flex gap-4 pt-2 justify-end">
+          <button
+            type="button"
+            id="close-cv-modal-btn"
+            class="px-5 py-2.5 bg-neutral-800 hover:bg-neutral-700 text-neutral-300 rounded font-semibold transition-colors cursor-pointer border border-neutral-700"
+          >
+            Cancelar
+          </button>
+          <button
+            type="submit"
+            class="px-5 py-2.5 bg-red-700 hover:bg-red-600 text-white rounded font-bold transition-all shadow-[0_0_15px_rgba(220,38,38,0.4)] hover:shadow-[0_0_20px_rgba(220,38,38,0.6)] cursor-pointer"
+          >
+            Enviar Solicitud
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const modal = document.getElementById('cv-modal');
+    const modalContent = document.getElementById('cv-modal-content');
+    const openBtn = document.getElementById('open-cv-modal');
+    const closeBtnX = document.getElementById('close-cv-modal-x');
+    const closeBtn = document.getElementById('close-cv-modal-btn');
+    const form = document.getElementById('cv-request-form');
+
+    function openModal() {
+      if (modal && modalContent) {
+        modal.classList.remove('opacity-0', 'pointer-events-none');
+        modal.classList.add('opacity-100');
+        modalContent.classList.remove('scale-95', 'opacity-0');
+        modalContent.classList.add('scale-100', 'opacity-100');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeModal() {
+      if (modal && modalContent) {
+        modal.classList.remove('opacity-100');
+        modal.classList.add('opacity-0', 'pointer-events-none');
+        modalContent.classList.remove('scale-100', 'opacity-100');
+        modalContent.classList.add('scale-95', 'opacity-0');
+        document.body.style.overflow = '';
+      }
+    }
+
+    if (openBtn) openBtn.addEventListener('click', openModal);
+    if (closeBtnX) closeBtnX.addEventListener('click', closeModal);
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+
+    if (modal) {
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          closeModal();
+        }
+      });
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeModal();
+      }
+    });
+
+    if (form) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const nameInput = document.getElementById('request-name');
+        const emailInput = document.getElementById('request-email');
+        const messageInput = document.getElementById('request-message');
+
+        const name = nameInput ? nameInput.value : '';
+        const email = emailInput ? emailInput.value : '';
+        const message = messageInput ? messageInput.value : '';
+
+        const emailDestination = 's.olmos1108@gmail.com';
+        const subject = `Solicitud de CV - ${name}`;
+        const body = `Hola Sebastián,\n\nMi nombre es ${name} (correo de contacto: ${email}).\n\n${message}`;
+
+        const mailtoUrl = `mailto:${emailDestination}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        
+        window.location.href = mailtoUrl;
+
+        setTimeout(closeModal, 500);
+      });
+    }
+  </script>
 </BaseLayout>
