@@ -9,427 +9,352 @@ const sortedProjects = allProjects.sort(
 );
 ---
 
-<BaseLayout title="Sebastian Olmos | Portafolio">
-  <section class="flex flex-col justify-center min-h-[85vh] py-10 relative">
-    <div class="absolute right-0 top-1/4 -z-10 opacity-20 hidden md:block">
-      <img
-            src="/logo.png"
-            alt="Foto de perfil"
-          />
-        <path
-          fill="#DC2626"
-          d="M44.7,-76.4C58.9,-69.2,71.8,-59.1,81.6,-46.6C91.4,-34.1,98.1,-19.2,95.8,-4.1C93.5,11.1,82.2,26.4,71.5,40.1C60.8,53.8,50.8,65.9,38.6,73.6C26.4,81.3,12.1,84.6,-1.6,87.4C-15.3,90.2,-29.9,92.5,-42.9,86.6C-55.9,80.7,-67.3,66.6,-75.6,51.6C-83.9,36.6,-89.1,20.7,-88.1,5.3C-87.1,-10.1,-79.9,-25,-70.2,-38.4C-60.5,-51.8,-48.3,-63.7,-35.1,-71.4C-21.9,-79.1,-7.7,-82.6,4.8,-90.9L17.3,-99.2Z"
-          transform="translate(100 100)"></path>
-      </svg>
-    </div>
+<BaseLayout title="Sebastián Olmos | Portafolio">
+  <!-- Hero Section -->
+  <section class="min-h-[80vh] flex flex-col justify-center py-12 relative overflow-hidden">
+    <!-- Abstract background glow -->
+    <div class="absolute -top-40 -right-40 w-96 h-96 bg-red-600/10 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+    <div class="absolute -bottom-40 -left-40 w-96 h-96 bg-red-900/10 rounded-full blur-3xl -z-10 pointer-events-none"></div>
 
-    <div class="space-y-8">
-      <div class="flex items-center gap-3">
-        <span class="h-[1px] w-12 bg-red-600"></span>
-        <span class="text-white font-mono text-sm tracking-widest uppercase"
-          >Hola, mi nombre es</span
-        >
+    <div class="space-y-8 max-w-4xl">
+      <!-- Pulsing Badge -->
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono bg-zinc-900/80 text-zinc-400 border border-zinc-800 shadow-sm">
+        <span class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
+        </span>
+        Disponible para nuevos desafíos
       </div>
 
-      <h1
-        class="text-6xl md:text-8xl font-bold tracking-tighter text-white leading-[0.9]"
-      >
-        Sebastián Alejandro <br />
-        <span
-          class="text-6xl md:text-8xl font-bold tracking-tighter text-white leading-[0.9]"
-        >
-          Olmos Cordero
-        </span>
-      </h1>
+      <div class="space-y-4">
+        <p class="text-zinc-500 font-mono text-sm tracking-widest uppercase">Hola, mi nombre es</p>
+        <h1 class="text-5xl sm:text-7xl md:text-8xl font-bold font-display tracking-tight text-white leading-none">
+          Sebastián <br class="hidden sm:inline" />
+          <span class="bg-gradient-to-r from-white via-zinc-200 to-zinc-500 bg-clip-text text-transparent">
+            Olmos Cordero
+          </span>
+        </h1>
+      </div>
 
-      <div class="max-w-2xl border-l-4 border-neutral-800 pl-6 py-2">
-        <h2 class="text-2xl md:text-3xl text-neutral-200 font-medium mb-2">
+      <div class="border-l-2 border-red-650 pl-6 py-2 max-w-2xl">
+        <h2 class="text-xl sm:text-2xl text-zinc-200 font-medium font-display">
           Ingeniero de Ejecución en Informática
         </h2>
-        <p class="text-neutral-500 text-lg">
+        <p class="text-zinc-500 text-base mt-1 font-mono">
           Mención en Desarrollo de Sistemas
         </p>
       </div>
 
-      {/* 4. Datos de Contacto Directo */}
-      <div
-        class="flex flex-col md:flex-row gap-6 text-neutral-400 font-mono text-sm pt-4"
-      >
-        <div
-          class="flex items-center gap-3 hover:text-white transition-colors cursor-default"
+      <!-- Contact direct details grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-md pt-4 font-mono text-sm">
+        <a 
+          href="mailto:s.olmos1108@gmail.com" 
+          class="flex items-center gap-3 px-4 py-3 bg-zinc-900/40 border border-zinc-800 hover:border-zinc-700 hover:text-white rounded-xl transition-all cursor-pointer group"
         >
-          <div
-            class="p-2 bg-neutral-900 rounded border border-neutral-800 text-red-500"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              ><rect x="2" y="4" width="20" height="16" rx="2"></rect><path
-                d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg
-            >
+          <div class="text-red-500 group-hover:scale-110 transition-transform">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
           </div>
-          <span>s.olmos1108@gmail.com</span>
-        </div>
+          <span class="truncate">s.olmos1108@gmail.com</span>
+        </a>
 
-        <div
-          class="flex items-center gap-3 hover:text-white transition-colors cursor-default"
-        >
-          <div
-            class="p-2 bg-neutral-900 rounded border border-neutral-800 text-red-500"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              ><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
-              ></path><circle cx="12" cy="10" r="3"></circle></svg
-            >
+        <div class="flex items-center gap-3 px-4 py-3 bg-zinc-900/40 border border-zinc-800 rounded-xl cursor-default">
+          <div class="text-red-500">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
           </div>
           <span>Chile</span>
         </div>
       </div>
 
-
-      <div class="flex flex-wrap gap-4 pt-8">
-
+      <!-- Action buttons -->
+      <div class="flex flex-wrap gap-4 pt-6">
         <a
           href="#projects"
-          class="px-6 py-3 bg-red-700 hover:bg-red-600 text-white rounded font-bold transition-all shadow-[0_0_20px_-5px_rgba(220,38,38,0.5)] hover:shadow-[0_0_25px_-5px_rgba(220,38,38,0.7)]"
+          class="px-6 py-3.5 bg-red-700 hover:bg-red-655 text-white rounded-xl font-bold font-display transition-all shadow-[0_0_20px_-5px_rgba(220,38,38,0.4)] hover:shadow-[0_0_25px_-5px_rgba(220,38,38,0.6)] cursor-pointer"
         >
           Ver Proyectos
         </a>
-
         <a
           href="#about"
-          class="px-6 py-3 bg-red-700 hover:bg-red-600 text-white rounded font-bold transition-all shadow-[0_0_20px_-5px_rgba(220,38,38,0.5)] hover:shadow-[0_0_25px_-5px_rgba(220,38,38,0.7)]"
+          class="px-6 py-3.5 bg-zinc-900 hover:bg-zinc-800 text-zinc-250 hover:text-white rounded-xl font-bold font-display transition-all border border-zinc-800 hover:border-zinc-700 cursor-pointer"
         >
           Sobre Mí
         </a>
-
         <a
           href="https://linkedin.com/in/saoc"
           target="_blank"
           rel="noopener noreferrer"
-          class="px-6 py-3 bg-red-700 hover:bg-red-600 text-white rounded font-bold transition-all shadow-[0_0_20px_-5px_rgba(220,38,38,0.5)] hover:shadow-[0_0_25px_-5px_rgba(220,38,38,0.7)]"
+          class="px-6 py-3.5 bg-zinc-900 hover:bg-zinc-800 text-zinc-250 hover:text-white rounded-xl font-bold font-display transition-all border border-zinc-800 hover:border-zinc-700 flex items-center gap-2 cursor-pointer"
         >
-          LinkedIn
+          LinkedIn 
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg>
         </a>
       </div>
     </div>
   </section>
 
-
-  <section id="about" class="py-20 border-t border-neutral-900">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-
-      <div class="relative group order-2 md:order-1">
-        <div
-          class="absolute -inset-1 bg-gradient-to-r from-red-600 to-red-900 rounded-lg blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"
-        >
-        </div>
-        <div
-          class="relative aspect-square overflow-hidden rounded-lg border border-neutral-800 bg-neutral-900"
-        >
+  <!-- About Section -->
+  <section id="about" class="py-24 border-t border-zinc-900 relative">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+      <!-- Profile Image -->
+      <div class="md:col-span-5 relative group">
+        <div class="absolute -inset-2 rounded-2xl bg-gradient-to-r from-red-600/20 to-rose-900/20 opacity-30 group-hover:opacity-60 transition duration-500 blur-xl"></div>
+        <div class="relative overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900 shadow-xl">
           <img
             src="/perfil.jpg"
-            alt="Foto de perfil"
-            class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+            alt="Sebastián Olmos"
+            class="w-full aspect-square object-cover grayscale contrast-[1.1] group-hover:grayscale-0 group-hover:scale-102 transition-all duration-700"
           />
         </div>
       </div>
 
-
-      <div class="space-y-6 order-1 md:order-2">
-        <h2 class="text-3xl font-bold text-white flex items-center gap-3">
-          <span class="text-red-600">/</span> Sobre Mí
+      <!-- Profile Bio -->
+      <div class="md:col-span-7 space-y-6">
+        <h2 class="text-3xl sm:text-4xl font-bold text-white font-display flex items-center gap-3">
+          <span class="text-red-500">/</span> Sobre Mí
         </h2>
 
-        <div class="space-y-4 text-neutral-400 text-lg leading-relaxed">
+        <div class="space-y-4 text-zinc-400 text-base sm:text-lg leading-relaxed">
           <p>
-            Soy <strong class="text-white"
-              >Ingeniero de Ejecución en Informática</strong
-            > con mención en desarrollo de sistemas, titulado con distinción. Mi enfoque
-            combina la rigurosidad técnica de la ingeniería con una capacidad creativa
-            orientada a resolver problemas complejos.
+            Soy <strong class="text-white font-semibold">Ingeniero de Ejecución en Informática</strong> con mención en desarrollo de sistemas, titulado con distinción. Mi enfoque combina la rigurosidad técnica de la ingeniería con una capacidad creativa orientada a resolver problemas complejos.
           </p>
           <p>
-            Cuento con <strong class="text-red-400"
-              >más de 5 años de experiencia</strong
-            > desarrollando videojuegos independientes en Unity (C#) para Android,
-            gestionando desde la programación de IAs hasta la publicación. En el ámbito
-            web, tengo una base sólida en soluciones backend robustas con <strong
-              class="text-white">Python (Django) y .NET</strong
-            >, priorizando siempre la seguridad informática y la optimización.
+            Cuento con <strong class="text-red-400 font-semibold">más de 5 años de experiencia</strong> desarrollando videojuegos independientes en Unity (C#) para Android, gestionando desde la programación de IAs hasta la publicación. En el ámbito web, tengo una base sólida en soluciones backend robustas con <strong class="text-white font-semibold">Python (Django) y .NET</strong>, priorizando siempre la seguridad informática y la optimización.
           </p>
           <p>
-            Fuera de las líneas de código, me apasiona la restauración
-            automotriz (actualmente trabajando en mi proyecto <em
-              class="text-white">"La Mosca"</em
-            >) y el aprendizaje constante de nuevas arquitecturas de software.
+            Fuera de las líneas de código, me apasiona la restauración automotriz (actualmente trabajando en mi proyecto <em class="text-white not-italic font-semibold">"La Mosca"</em>) y el aprendizaje constante de nuevas arquitecturas de software.
           </p>
         </div>
 
+        <!-- Quick Stats / Highlights -->
+        <div class="grid grid-cols-3 gap-4 pt-4">
+          <div class="p-4 bg-zinc-900/30 border border-zinc-800/80 rounded-xl text-center">
+            <p class="text-2xl sm:text-3xl font-bold text-white font-display">+5</p>
+            <p class="text-xs text-zinc-500 font-mono mt-1">Años Unity</p>
+          </div>
+          <div class="p-4 bg-zinc-900/30 border border-zinc-800/80 rounded-xl text-center">
+            <p class="text-2xl sm:text-3xl font-bold text-white font-display">Titulado</p>
+            <p class="text-xs text-zinc-500 font-mono mt-1">Con Distinción</p>
+          </div>
+          <div class="p-4 bg-zinc-900/30 border border-zinc-800/80 rounded-xl text-center">
+            <p class="text-2xl sm:text-3xl font-bold text-white font-display">Backend</p>
+            <p class="text-xs text-zinc-500 font-mono mt-1">Python / .NET</p>
+          </div>
+        </div>
 
-        <div class="pt-4 flex flex-col gap-2.5 items-start">
+        <!-- CV Button -->
+        <div class="pt-6 flex flex-col gap-3 items-start">
           <button
             id="open-cv-modal"
-            class="inline-flex items-center gap-2 px-6 py-3 bg-red-700 hover:bg-red-600 text-white rounded font-bold transition-all shadow-[0_0_20px_-5px_rgba(220,38,38,0.5)] hover:shadow-[0_0_25px_-5px_rgba(220,38,38,0.7)] cursor-pointer"
+            class="inline-flex items-center gap-2 px-6 py-3.5 bg-red-700 hover:bg-red-655 text-white rounded-xl font-bold font-display transition-all shadow-[0_0_20px_-5px_rgba(220,38,38,0.4)] cursor-pointer"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              ><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg
-            >
-            Solicitar CV
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+            Solicitar Currículum (CV)
           </button>
-          <span class="text-xs text-neutral-500 font-mono">
-            * Se requiere solicitud para proteger la privacidad de mis datos personales.
-          </span>
+          <p class="text-xs text-zinc-500 font-mono">
+            * Se requiere solicitud por correo para proteger datos personales sensibles.
+          </p>
         </div>
       </div>
     </div>
   </section>
 
-
-  <section class="py-16 border-t border-neutral-900">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-
-      <div class="md:col-span-1">
-        <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-2">
-          <span class="text-red-600">🎓</span> Formación
-        </h2>
-        <p class="text-neutral-400 text-sm leading-relaxed">
-          Trayectoria académica marcada por la excelencia en cátedras de
-          especialidad y gestión.
-        </p>
-      </div>
-
-
-      <div class="md:col-span-2 space-y-8">
-
-        <div class="relative pl-8 border-l border-neutral-800">
-
-          <div
-            class="absolute -left-[5px] top-2 h-2.5 w-2.5 rounded-full bg-red-600 shadow-[0_0_15px_rgba(220,38,38,0.6)]"
-          >
-          </div>
-
-          <h3 class="text-xl font-bold text-white">
-            Ingeniería de Ejecución en Informática
-          </h3>
-          <div class="text-neutral-400 text-sm mb-3 font-medium">
-            Instituto Profesional AIEP
-          </div>
-
-
-          <div class="flex flex-wrap gap-2 mb-4">
-            <span
-              class="px-2 py-1 bg-neutral-800 text-neutral-300 text-xs rounded border border-neutral-700"
-            >
-              Mención Desarrollo de Sistemas
-            </span>
-            <span
-              class="px-2 py-1 bg-red-900/20 text-red-400 text-xs rounded border border-red-900/30 font-bold tracking-wide"
-            >
-              TITULADO CON DISTINCIÓN
-            </span>
-            <span
-              class="px-2 py-1 bg-neutral-800 text-neutral-300 text-xs rounded border border-neutral-700"
-            >
-              Promedio Formativo: 6.1
-            </span>
-          </div>
-
-
-          <div
-            class="bg-neutral-900/50 rounded-lg p-4 border border-neutral-800/50"
-          >
-            <h4
-              class="text-xs font-mono text-neutral-500 uppercase tracking-widest mb-3 flex items-center gap-2"
-            >
-              <span class="text-red-500">★</span> Excelencia Académica (Nota 7.0)
-            </h4>
-            <div class="flex flex-wrap gap-2">
-              {
-                [
-                  "Seguridad Informática",
-                  "Gestión de Proyectos TI",
-                  "Minería de Datos",
-                ].map((item) => (
-                  <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-neutral-950 border border-neutral-800 text-xs font-medium text-neutral-300 hover:border-red-500/30 hover:text-white transition-colors cursor-default">
-                    {item}
-                  </span>
-                ))
-              }
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  {/* --- EXPERIENCIA LABORAL --- */}
-  <section class="py-16 border-t border-neutral-900">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+  <!-- Timeline (Education & Experience) -->
+  <section class="py-24 border-t border-zinc-900">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
       
-      <div class="md:col-span-1">
-        <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-2">
-          <span class="text-red-600">💼</span> Experiencia
-        </h2>
-        <p class="text-neutral-400 text-sm leading-relaxed">
-          Desarrollo backend, diseño de APIs y formación de equipos técnicos.
-        </p>
-      </div>
-
-      <div class="md:col-span-2 space-y-8">
+      <!-- Education column -->
+      <div class="space-y-10">
+        <h3 class="text-2xl font-bold text-white font-display flex items-center gap-3">
+          <span class="text-red-500">/</span> Formación
+        </h3>
         
-        {/* Intelektas */}
-        <div class="relative pl-8 border-l border-neutral-800">
-          <div class="absolute -left-[5px] top-2 h-2.5 w-2.5 rounded-full bg-red-600 shadow-[0_0_15px_rgba(220,38,38,0.6)]"></div>
-          
-          <h3 class="text-xl font-bold text-white">Desarrollador Backend / Asesor Externo TI</h3>
-          <div class="text-neutral-400 text-sm mb-3 font-medium">Sociedad Intelektas Capacitaciones Ltda. | Ene. 2023 - Mar. 2025 (Periodos estivales)</div>
-          
-          <p class="text-neutral-400 mt-2 text-sm leading-relaxed">
-            Desarrollo de aplicaciones web e implementación de sistemas de control de inventario. Diseño y despliegue de APIs REST para automatización de procesos internos. Integración en equipos bajo metodologías ágiles garantizando el cumplimiento de plazos.
-          </p>
-        </div>
-
-        {/* CADES */}
-        <div class="relative pl-8 border-l border-neutral-800">
-          <div class="absolute -left-[5px] top-2 h-2.5 w-2.5 rounded-full bg-neutral-600 hover:bg-red-500 transition-colors"></div>
-          
-          <h3 class="text-xl font-bold text-white">Relator Externo TI</h3>
-          <div class="text-neutral-400 text-sm mb-3 font-medium">Fundación CADES | 2025 - 2026</div>
-          
-          <p class="text-neutral-400 mt-2 text-sm leading-relaxed">
-            Capacitación técnica y formación de equipos en herramientas de ofimática (básico, medio y avanzado). Ejecución de más de 400 horas de instrucción teórica y práctica en modalidades presencial y remota.
-          </p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <section class="py-20 border-t border-neutral-900">
-    <h3
-      class="text-sm font-mono text-neutral-500 mb-8 uppercase tracking-widest"
-    >
-      Stack Tecnológico
-    </h3>
-    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
-      {
-        ['Python (Django)', 'C# .NET', 'Java', 'TypeScript', 'Astro', 'Unity', 'SQL / SQLite', 'Tailwind CSS'].map((tech) => (
-        <div class="p-4 bg-neutral-900/50 border border-neutral-800 rounded hover:border-red-900/50 hover:text-red-400 transition-all cursor-default flex items-center justify-center font-semibold text-neutral-400 text-center">
-          {tech}
-        </div>
-        ))
-      }
-    </div>
-  </section>
-
-
-  <section id="projects" class="py-20 border-t border-neutral-900">
-    <div class="flex items-baseline justify-between mb-12">
-      <h2 class="text-3xl font-bold text-white">Proyectos Seleccionados</h2>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      {
-        sortedProjects.map((project) => (
-          <article class="group relative bg-neutral-900 border border-neutral-800 rounded-lg overflow-hidden hover:border-red-900/50 transition-all duration-300 hover:-translate-y-1 flex flex-col">
-
-            {project.data.image && (
-              <div class="relative h-48 w-full overflow-hidden border-b border-neutral-800">
-                <Image
-                  src={project.data.image}
-                  alt={`Captura de pantalla de ${project.data.title}`}
-                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  width={600}
-                  height={300}
-                />
-
-                <div class="absolute inset-0 bg-neutral-900/20 group-hover:bg-transparent transition-colors" />
-              </div>
-            )}
-
-            <div class="p-8 flex-1 flex flex-col">
-              <div class="flex gap-2 mb-4 flex-wrap">
-                {project.data.tags.map((tag) => (
-                  <span class="text-xs font-bold px-2 py-1 rounded bg-neutral-950 text-neutral-400 border border-neutral-800 group-hover:border-red-900/30 group-hover:text-red-400 transition-colors">
-                    {tag}
-                  </span>
+        <div class="space-y-8 relative pl-6 border-l border-zinc-850">
+          <div class="relative group">
+            <div class="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-zinc-950 border-2 border-red-500 group-hover:bg-red-500 transition-colors shadow-[0_0_8px_rgba(220,38,38,0.5)]"></div>
+            <span class="text-xs font-mono text-zinc-550 uppercase">Instituto Profesional AIEP / Titulado</span>
+            <h4 class="text-lg sm:text-xl font-bold text-white font-display mt-1 group-hover:text-red-400 transition-colors">
+              Ingeniería de Ejecución en Informática
+            </h4>
+            <div class="flex flex-wrap gap-2 mt-2">
+              <span class="px-2 py-0.5 bg-zinc-900 text-zinc-400 border border-zinc-800 rounded text-xs">Mención Desarrollo de Sistemas</span>
+              <span class="px-2 py-0.5 bg-red-950/30 text-red-400 border border-red-900/30 rounded text-xs font-semibold">Distinción Máxima</span>
+              <span class="px-2 py-0.5 bg-zinc-900 text-zinc-400 border border-zinc-800 rounded text-xs">Promedio 6.1</span>
+            </div>
+            <div class="mt-4 p-4 bg-zinc-900/30 border border-zinc-800/80 rounded-xl">
+              <h5 class="text-xs font-mono text-zinc-500 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                <span class="text-red-500">★</span> Excelencia Académica (Nota 7.0)
+              </h5>
+              <div class="flex flex-wrap gap-1.5">
+                {["Seguridad Informática", "Gestión de Proyectos TI", "Minería de Datos"].map((subject) => (
+                  <span class="px-2.5 py-1 bg-zinc-950 border border-zinc-850 rounded text-xs text-zinc-350">{subject}</span>
                 ))}
               </div>
-
-              <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-red-500 transition-colors">
-                {project.data.title}
-              </h3>
-
-              <p class="text-neutral-400 text-sm leading-relaxed mb-6 flex-1">
-                {project.data.description}
-              </p>
-
-              <div class="pt-6 border-t border-neutral-800 flex gap-4 mt-auto">
-                {project.data.repo && (
-                  <a
-                    href={project.data.repo}
-                    target="_blank"
-                    class="text-sm font-bold text-neutral-500 hover:text-white flex items-center gap-2 uppercase tracking-wide"
-                  >
-                    GitHub ↗
-                  </a>
-                )}
-                {project.data.link && (
-                  <a
-                    href={project.data.link}
-                    target="_blank"
-                    class="text-sm font-bold text-red-600 hover:text-red-400 flex items-center gap-2 uppercase tracking-wide"
-                  >
-                    Live Demo ↗
-                  </a>
-                )}
-              </div>
             </div>
-          </article>
-        ))
-      }
+          </div>
+        </div>
+      </div>
+
+      <!-- Experience column -->
+      <div class="space-y-10">
+        <h3 class="text-2xl font-bold text-white font-display flex items-center gap-3">
+          <span class="text-red-500">/</span> Experiencia
+        </h3>
+        
+        <div class="space-y-8 relative pl-6 border-l border-zinc-850">
+          <!-- Intelektas -->
+          <div class="relative group">
+            <div class="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-zinc-950 border-2 border-red-500 group-hover:bg-red-500 transition-colors shadow-[0_0_8px_rgba(220,38,38,0.5)]"></div>
+            <span class="text-xs font-mono text-zinc-550 uppercase">2023 - 2025 / Ene. - Mar. (Periodos estivales)</span>
+            <h4 class="text-lg sm:text-xl font-bold text-white font-display mt-1 group-hover:text-red-400 transition-colors">
+              Desarrollador Backend / Asesor Externo TI
+            </h4>
+            <p class="text-sm text-zinc-400 font-medium">Sociedad Intelektas Capacitaciones Ltda.</p>
+            <p class="text-sm text-zinc-500 mt-2 leading-relaxed">
+              Desarrollo de aplicaciones web e implementación de sistemas de control de inventario. Diseño y despliegue de APIs REST para automatización. Colaboración ágil garantizando el cumplimiento de plazos críticos.
+            </p>
+          </div>
+
+          <!-- CADES -->
+          <div class="relative group">
+            <div class="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-zinc-950 border-2 border-zinc-800 group-hover:border-red-500 transition-colors shadow-sm"></div>
+            <span class="text-xs font-mono text-zinc-550 uppercase">2025 - 2026</span>
+            <h4 class="text-lg sm:text-xl font-bold text-white font-display mt-1 group-hover:text-red-400 transition-colors">
+              Relator Externo TI
+            </h4>
+            <p class="text-sm text-zinc-400 font-medium">Fundación CADES</p>
+            <p class="text-sm text-zinc-500 mt-2 leading-relaxed">
+              Capacitación técnica y formación de equipos en herramientas de ofimática (niveles básico, medio y avanzado). Más de 400 horas de relatoría teórica y práctica en modalidad presencial y remota.
+            </p>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
-  <!-- Modal de Solicitud de CV -->
+  <!-- Tech Stack -->
+  <section class="py-24 border-t border-zinc-900 relative">
+    <div class="space-y-12">
+      <div>
+        <h2 class="text-3xl font-bold text-white font-display flex items-center gap-3">
+          <span class="text-red-500">/</span> Stack Tecnológico
+        </h2>
+        <p class="text-zinc-500 text-sm mt-2 font-mono">Herramientas y lenguajes con los que trabajo habitualmente</p>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+        {[
+          { name: 'Python (Django)', desc: 'Desarrollo web y APIs' },
+          { name: 'C# .NET', desc: 'Sistemas backend y servicios' },
+          { name: 'Java', desc: 'Programación orientada a objetos' },
+          { name: 'TypeScript', desc: 'Desarrollo web frontend moderno' },
+          { name: 'Astro', desc: 'Sitios web estáticos optimizados' },
+          { name: 'Unity', desc: 'Desarrollo de videojuegos 2D/3D' },
+          { name: 'SQL / SQLite', desc: 'Gestión y modelado de BD' },
+          { name: 'Tailwind CSS', desc: 'Diseño e interfaces ágiles' }
+        ].map((tech) => (
+          <div class="p-5 bg-zinc-900/20 border border-zinc-850 hover:border-red-500/30 hover:bg-zinc-900/40 rounded-xl transition-all duration-300 group hover:-translate-y-1 cursor-default shadow-sm">
+            <h4 class="text-white font-bold font-display group-hover:text-red-400 transition-colors">{tech.name}</h4>
+            <p class="text-zinc-550 text-xs mt-1.5 font-mono">{tech.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-24 border-t border-zinc-900">
+    <div class="space-y-12">
+      <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-4">
+        <div>
+          <h2 class="text-3xl sm:text-4xl font-bold text-white font-display">Proyectos Seleccionados</h2>
+          <p class="text-zinc-555 text-sm mt-2 font-mono">Una muestra de desarrollos prácticos en videojuegos y web</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {
+          sortedProjects.map((project) => (
+            <article class="group relative bg-zinc-900/30 border border-zinc-850 rounded-2xl overflow-hidden hover:border-red-500/30 transition-all duration-350 hover:-translate-y-1.5 flex flex-col shadow-lg">
+
+              {project.data.image && (
+                <div class="relative h-52 w-full overflow-hidden border-b border-zinc-850 bg-zinc-950">
+                  <Image
+                    src={project.data.image}
+                    alt={`Captura de pantalla de ${project.data.title}`}
+                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-103"
+                    width={600}
+                    height={300}
+                  />
+                  <!-- Hover overlay gradient -->
+                  <div class="absolute inset-0 bg-gradient-to-t from-zinc-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </div>
+              )}
+
+              <div class="p-6 sm:p-8 flex-1 flex flex-col justify-between">
+                <div>
+                  <div class="flex gap-1.5 mb-4 flex-wrap">
+                    {project.data.tags.map((tag) => (
+                      <span class="text-[10px] sm:text-xs font-mono font-semibold px-2 py-0.5 rounded bg-zinc-950 border border-zinc-850 text-zinc-450 group-hover:text-red-400 group-hover:border-red-900/30 transition-colors">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  <h3 class="text-xl sm:text-2xl font-bold font-display text-white mb-2.5 group-hover:text-red-400 transition-colors">
+                    {project.data.title}
+                  </h3>
+
+                  <p class="text-zinc-400 text-sm leading-relaxed mb-6 font-sans">
+                    {project.data.description}
+                  </p>
+                </div>
+
+                <div class="pt-5 border-t border-zinc-850/60 flex gap-4 mt-auto">
+                  {project.data.repo && (
+                    <a
+                      href={project.data.repo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-xs font-bold text-zinc-500 hover:text-white flex items-center gap-1.5 uppercase tracking-wide font-mono cursor-pointer transition-colors"
+                    >
+                      GitHub
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg>
+                    </a>
+                  )}
+                  {project.data.link && (
+                    <a
+                      href={project.data.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-xs font-bold text-red-500 hover:text-red-450 flex items-center gap-1.5 uppercase tracking-wide font-mono cursor-pointer transition-colors"
+                    >
+                      Visitar Proyecto
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                    </a>
+                  )}
+                </div>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- CV Modal Form -->
   <div
     id="cv-modal"
-    class="fixed inset-0 z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300 bg-neutral-950/80 backdrop-blur-sm"
+    class="fixed inset-0 z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300 bg-zinc-950/80 backdrop-blur-sm"
   >
     <div
       id="cv-modal-content"
-      class="relative w-full max-w-lg scale-95 opacity-0 transition-all duration-300 bg-neutral-900 border border-neutral-800 rounded-lg p-6 md:p-8 shadow-2xl flex flex-col gap-6"
+      class="relative w-full max-w-lg scale-95 opacity-0 transition-all duration-300 bg-zinc-900 border border-zinc-800 rounded-2xl p-6 md:p-8 shadow-2xl flex flex-col gap-6"
     >
-      <!-- Botón de Cerrar (X) -->
+      <!-- Close Button (X) -->
       <button
         id="close-cv-modal-x"
-        class="absolute top-4 right-4 text-neutral-400 hover:text-white transition-colors cursor-pointer"
+        class="absolute top-4 right-4 text-zinc-450 hover:text-white transition-colors cursor-pointer"
         aria-label="Cerrar modal"
       >
         <svg
@@ -447,17 +372,17 @@ const sortedProjects = allProjects.sort(
       </button>
 
       <div>
-        <h3 class="text-2xl font-bold text-white flex items-center gap-2">
-          <span class="text-red-600">✉</span> Solicitar CV
+        <h3 class="text-2xl font-bold text-white font-display flex items-center gap-2">
+          <span class="text-red-500">✉</span> Solicitar CV
         </h3>
-        <p class="text-neutral-400 text-sm mt-2 leading-relaxed">
+        <p class="text-zinc-450 text-sm mt-2 leading-relaxed">
           Para proteger la privacidad de mis datos personales (teléfono, dirección, etc.), mi currículum se envía de forma directa y personalizada. Por favor, ingresa tus datos a continuación.
         </p>
       </div>
 
       <form id="cv-request-form" class="space-y-4">
         <div>
-          <label for="request-name" class="block text-xs font-mono text-neutral-400 uppercase tracking-wider mb-2">
+          <label for="request-name" class="block text-xs font-mono text-zinc-400 uppercase tracking-wider mb-2">
             Nombre / Empresa <span class="text-red-500">*</span>
           </label>
           <input
@@ -465,12 +390,12 @@ const sortedProjects = allProjects.sort(
             id="request-name"
             required
             placeholder="Ej. Jane Doe / TechCorp"
-            class="w-full px-4 py-3 bg-neutral-950 border border-neutral-800 rounded text-white placeholder-neutral-600 focus:outline-none focus:border-red-600 transition-colors"
+            class="w-full px-4 py-3 bg-zinc-950 border border-zinc-850 rounded-xl text-white placeholder-zinc-700 focus:outline-none focus:border-red-600 transition-colors text-sm font-sans"
           />
         </div>
 
         <div>
-          <label for="request-email" class="block text-xs font-mono text-neutral-400 uppercase tracking-wider mb-2">
+          <label for="request-email" class="block text-xs font-mono text-zinc-400 uppercase tracking-wider mb-2">
             Tu Correo Electrónico <span class="text-red-500">*</span>
           </label>
           <input
@@ -478,33 +403,33 @@ const sortedProjects = allProjects.sort(
             id="request-email"
             required
             placeholder="Ej. jane.doe@example.com"
-            class="w-full px-4 py-3 bg-neutral-950 border border-neutral-800 rounded text-white placeholder-neutral-600 focus:outline-none focus:border-red-600 transition-colors"
+            class="w-full px-4 py-3 bg-zinc-950 border border-zinc-850 rounded-xl text-white placeholder-zinc-700 focus:outline-none focus:border-red-600 transition-colors text-sm font-sans"
           />
         </div>
 
         <div>
-          <label for="request-message" class="block text-xs font-mono text-neutral-400 uppercase tracking-wider mb-2">
+          <label for="request-message" class="block text-xs font-mono text-zinc-400 uppercase tracking-wider mb-2">
             Mensaje <span class="text-red-500">*</span>
           </label>
           <textarea
             id="request-message"
             rows="4"
             required
-            class="w-full px-4 py-3 bg-neutral-950 border border-neutral-800 rounded text-white placeholder-neutral-600 focus:outline-none focus:border-red-600 transition-colors resize-none"
+            class="w-full px-4 py-3 bg-zinc-950 border border-zinc-850 rounded-xl text-white placeholder-zinc-700 focus:outline-none focus:border-red-600 transition-colors resize-none text-sm font-sans"
           >Hola Sebastián, he visto tu portafolio y me gustaría solicitar tu CV para revisar tu perfil profesional para una posible vacante.</textarea>
         </div>
 
-        <div class="flex gap-4 pt-2 justify-end">
+        <div class="flex gap-3 pt-2 justify-end text-sm">
           <button
             type="button"
             id="close-cv-modal-btn"
-            class="px-5 py-2.5 bg-neutral-800 hover:bg-neutral-700 text-neutral-300 rounded font-semibold transition-colors cursor-pointer border border-neutral-700"
+            class="px-5 py-2.5 bg-zinc-850 hover:bg-zinc-800 text-zinc-300 rounded-xl font-semibold font-display transition-colors cursor-pointer border border-zinc-800"
           >
             Cancelar
           </button>
           <button
             type="submit"
-            class="px-5 py-2.5 bg-red-700 hover:bg-red-600 text-white rounded font-bold transition-all shadow-[0_0_15px_rgba(220,38,38,0.4)] hover:shadow-[0_0_20px_rgba(220,38,38,0.6)] cursor-pointer"
+            class="px-5 py-2.5 bg-red-700 hover:bg-red-655 text-white rounded-xl font-bold font-display transition-all shadow-[0_0_15px_rgba(220,38,38,0.4)] hover:shadow-[0_0_20px_rgba(220,38,38,0.6)] cursor-pointer"
           >
             Enviar Solicitud
           </button>
